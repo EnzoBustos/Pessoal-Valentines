@@ -57,13 +57,7 @@ export default function PhotoPairGame({
   const [selected, setSelected] = useState<number[]>([]);
   const [matched, setMatched] = useState<number[]>([]);
   const [incorrect, setIncorrect] = useState<number[]>([]);
-  const [images, setImages] = useState<string[]>([]);
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-    setImages(shuffleArray([...imagePairs]));
-  }, []);
+  const [images] = useState(() => shuffleArray([...imagePairs]));
 
   const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
@@ -97,24 +91,20 @@ export default function PhotoPairGame({
   return (
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
       {/* Image preload */}
-      {isClient && (
-        <div className="hidden">
-          {images.map((image, i) => (
-            <Image
-              key={i}
-              src={image}
-              alt={`Image ${i + 1}`}
-              fill
-              className="object-cover"
-              priority
-            />
-          ))}
-        </div>
-      )}
+      <div className="hidden">
+        {images.map((image, i) => (
+          <Image
+            key={i}
+            src={image}
+            alt={`Image ${i + 1}`}
+            fill
+            className="object-cover"
+            priority
+          />
+        ))}
+      </div>
 
-      {isClient && (
-        <>
-          {heartLayout.flat().map((index, i) =>
+      {heartLayout.flat().map((index, i) =>
         index !== null ? (
           <motion.div
             key={i}
@@ -171,8 +161,6 @@ export default function PhotoPairGame({
         ) : (
           <div key={i} className="w-[11vh] h-[11vh] lg:w-20 lg:h-20" />
         ),
-      )}
-        </>
       )}
     </div>
   );
