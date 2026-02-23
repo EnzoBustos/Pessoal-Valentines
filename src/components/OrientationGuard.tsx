@@ -12,7 +12,7 @@ export default function OrientationGuard({
 
   useEffect(() => {
     const checkOrientation = () => {
-      // Detects if we're in portrait mode
+      // Detecta se esta no modo retrato
       const portrait =
         window.innerHeight > window.innerWidth && window.innerWidth < 1024;
       setIsPortrait(portrait);
@@ -45,12 +45,10 @@ export default function OrientationGuard({
             />
           </svg>
         </motion.div>
-        <h2 className="text-3xl font-bold text-white mb-4">
-          Rotate your device
-        </h2>
+        <h2 className="text-3xl font-bold text-white mb-4">Gire o dispositivo</h2>
         <p className="text-gray-400 text-lg max-w-xs">
-          To be able to play correctly, you need to put your phone in{" "}
-          <b>landscape mode</b>.
+          Para jogar direitinho, coloque o celular no{" "}
+          <b>modo paisagem</b>.
         </p>
       </div>
     );

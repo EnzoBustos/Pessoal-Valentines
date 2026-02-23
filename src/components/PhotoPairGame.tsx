@@ -96,7 +96,7 @@ export default function PhotoPairGame({
           <Image
             key={i}
             src={image}
-            alt={`Image ${i + 1}`}
+            alt={`Imagem ${i + 1}`}
             fill
             className="object-cover"
             priority
@@ -140,7 +140,7 @@ export default function PhotoPairGame({
               >
                 <Image
                   src={images[index]}
-                  alt={`Imagen ${index + 1}`}
+                  alt={`Imagem ${index + 1}`}
                   fill
                   className="rounded-sm lg:rounded-md object-cover"
                 />

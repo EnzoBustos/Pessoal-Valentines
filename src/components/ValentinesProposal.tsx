@@ -91,7 +91,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Congratulations! You have completed the game.
+            Parabens! Voce completou o jogo.
           </motion.h2>
         )}
         {step === 1 && (
@@ -103,7 +103,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            I have a surprise for you!
+            Eu tenho uma surpresa para voce!
           </motion.h2>
         )}
         {step === 2 && (
@@ -121,7 +121,7 @@ export default function ValentinesProposal() {
                 <div key={index} className="relative h-full">
                   <Image
                     src={src}
-                    alt={`Memory ${index + 1}`}
+                    alt={`Memoria ${index + 1}`}
                     fill
                     className="object-cover"
                   />
@@ -132,11 +132,11 @@ export default function ValentinesProposal() {
             <h2
               className={`text-5xl font-semibold mb-8 ${playfairDisplay.className}`}
             >
-              Will you be my Valentine?
+              Quer ser meu par no Dia dos Namorados?
             </h2>
             <Image
               src="/sad_hamster.png"
-              alt="Sad Hamster"
+              alt="Hamster Triste"
               width={200}
               height={200}
             />
@@ -145,7 +145,7 @@ export default function ValentinesProposal() {
                 className="px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl hover:from-pink-600 hover:to-rose-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 onClick={handleYesClick}
               >
-                Yes, I will! 🥰
+                Sim, claro! 🥰
               </button>
               <button
                 className="px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-gray-500 to-gray-600 rounded-xl hover:from-gray-600 hover:to-gray-700 transform hover:scale-95 transition-all duration-300 shadow-lg"
@@ -161,7 +161,7 @@ export default function ValentinesProposal() {
                 onMouseEnter={() => setPosition(getRandomPosition())}
                 onClick={() => setPosition(getRandomPosition())}
               >
-                No, I won&apos;t 😢
+                Nao, obrigado 😢
               </button>
             </div>
           </motion.div>
@@ -175,8 +175,8 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Thank you for accepting, I love you! 💕
-            <p className="text-sm mt-4">For more information, write me!!! 💌</p>
+            Obrigado por aceitar, eu te amo! 💕
+            <p className="text-sm mt-4">Me chama pra combinarmos algo especial! 💌</p>
             <Image
               src="/hamster_jumping.gif"
               alt="Hamster Feliz"
