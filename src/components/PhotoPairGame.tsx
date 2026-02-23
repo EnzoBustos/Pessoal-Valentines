@@ -57,7 +57,12 @@ export default function PhotoPairGame({
   const [selected, setSelected] = useState<number[]>([]);
   const [matched, setMatched] = useState<number[]>([]);
   const [incorrect, setIncorrect] = useState<number[]>([]);
-  const [images] = useState(() => shuffleArray([...imagePairs]));
+  const [shuffledImages, setShuffledImages] = useState(imagePairs);
+
+  useEffect(() => {
+    // Garantir que o embaralhamento ocorra apenas no cliente apos o hydrate
+    setShuffledImages(shuffleArray([...imagePairs]));
+  }, []);
 
   const handleClick = async (index: number) => {
     if (selected.length === 2 || matched.includes(index) || selected.includes(index)) return;
@@ -66,7 +71,7 @@ export default function PhotoPairGame({
       const firstIndex = selected[0];
       setSelected((prev) => [...prev, index]);
 
-      if (images[firstIndex] === images[index]) {
+      if (shuffledImages[firstIndex] === shuffledImages[index]) {
         setMatched((prev) => [...prev, firstIndex, index]);
         setSelected([]);
       } else {
@@ -92,7 +97,7 @@ export default function PhotoPairGame({
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
       {/* Image preload */}
       <div className="hidden">
-        {images.map((image, i) => (
+        {shuffledImages.map((image, i) => (
           <Image
             key={i}
             src={image}
@@ -139,7 +144,7 @@ export default function PhotoPairGame({
                 style={{ backfaceVisibility: "hidden" }}
               >
                 <Image
-                  src={images[index]}
+                  src={shuffledImages[index]}
                   alt={`Imagem ${index + 1}`}
                   fill
                   className="rounded-sm lg:rounded-md object-cover"

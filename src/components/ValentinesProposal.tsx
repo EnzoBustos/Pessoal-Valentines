@@ -91,7 +91,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Parabens! Voce completou o jogo.
+            Parabéns! Você completou o jogo!!!
           </motion.h2>
         )}
         {step === 1 && (
@@ -103,7 +103,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Eu tenho uma surpresa para voce!
+            Eu tenho uma surpresinha para você!
           </motion.h2>
         )}
         {step === 2 && (
@@ -161,7 +161,7 @@ export default function ValentinesProposal() {
                 onMouseEnter={() => setPosition(getRandomPosition())}
                 onClick={() => setPosition(getRandomPosition())}
               >
-                Nao, obrigado 😢
+                Não, obrigado. 😢
               </button>
             </div>
           </motion.div>
@@ -175,7 +175,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Obrigado por aceitar, eu te amo! 💕
+            Obrigado por aceitar, eu te amo bem muitão! 💕
             <p className="text-sm mt-4">Me chama pra combinarmos algo especial! 💌</p>
             <Image
               src="/hamster_jumping.gif"
